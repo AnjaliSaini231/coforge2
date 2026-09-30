@@ -1,0 +1,26 @@
+version: 2
+
+
+sources:
+  - name: src
+    database: sourcedb
+    description: "Source data from oracle data base"
+    schema: mk_mall
+
+    tables:
+      - name: customers
+        columns: 
+          - name: c_custkey
+            tests:
+              - unique
+              - not_null
+      - name: nations
+      - name: regions
+      - name: orders
+        description: "the orders processed in the oltp database"
+      - name: suppliers
+        config:
+          freshness:
+            warn_after: { count: 5, period: day }
+            error_after: { count: 7, period: day }
+          loaded_at_field: updated_time
