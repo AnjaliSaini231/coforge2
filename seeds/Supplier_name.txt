@@ -1,6 +1,0 @@
-SKey,Sname
-1,Anu
-2,Buil
-3,materialised
-4,seeds
-
